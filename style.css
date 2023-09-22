@@ -1,5 +1,7 @@
 /* -------  General Styles ------- */
-
+html {
+  width: 100%;
+}
 body {
   font-family: "Lato", sans-serif;
 }
@@ -31,7 +33,7 @@ section.alternate-background {
 }
 
 main img {
-  width: 100px;
+  width: 100%;
 }
 
 /* ---  Groups & Items --- */
@@ -39,15 +41,13 @@ main img {
 .group {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  align-items: center;
 }
 
 .item {
   flex: 1;
   margin: 10px;
-}
-
-.item-double {
-  flex: 2;
 }
 
 /* -------  Navigation ------- */
@@ -58,10 +58,19 @@ header {
   text-align: center;
 }
 
+nav {
+  display: flex;
+  margin: 0;
+  justify-content: center;
+}
+
 .logo {
   font-family: "Pangolin", cursive;
-  font-size: 72px;
+  font-size: 18vw;
   color: #fff;
+}
+header nav ul {
+  padding-inline-start: 0;
 }
 
 header nav ul li {
@@ -71,13 +80,21 @@ header nav ul li {
 header nav ul li a {
   color: #fff;
   text-decoration: none;
-  padding: 0 20px 0 0;
+  padding: 0;
 }
 
 header nav ul li a:hover {
   color: #bdbdbd;
   text-decoration: none;
 }
+
+header nav .group {
+  width: 275px;
+  justify-content: center;
+  margin: 0;
+  flex-direction: row;
+}
+
 
 /* -------  Search Form ------- */
 form {
@@ -91,8 +108,7 @@ form label {
 
 form select,
 form input {
-  margin-bottom: 20px;
-  width: 180px;
+  flex: 1;
 }
 
 form button {
@@ -104,6 +120,31 @@ form button {
   width: 100%;
 }
 
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+fieldset .group{
+  border: none;
+  margin: 0;
+  padding: 0;
+  flex-direction: row;
+  
+}
+
+.label {
+  max-width: 62px;
+}
+.item input {
+  width: 100%;
+  flex: 1;
+}
+
+select {
+  flex: 1;
+  width: 100%;
+}
 /* -------  Footer ------- */
 
 footer {
@@ -117,3 +158,48 @@ footer p {
 }
 
 /* -------  Media Query ------- */
+@media all and (min-width: 768px)
+{
+  .item-double {
+    flex: 2;
+  }
+  
+  .group {
+    flex-direction: row;
+  }
+  .logo {
+    font-size: xx-large;
+    text-align: left;
+  }
+  
+  fieldset .group{
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 10px;
+  }
+  form input, form select {
+    margin: 0;
+  }
+  fieldset .item{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  .wrap {
+    flex-wrap: wrap;
+  }
+
+  .wrap .item {
+    flex: stretch;
+    margin: 0 0 0 .8%;
+    width: 100%;
+  }
+
+  .wrap .item img {
+    width: 46.8vw;
+  }
+
+  .item p{
+    flex: 2;
+  }
+}
